@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ProjectList.css';
-import { collection, getDocs } from "firebase/firestore";
-import db from '../../firebase';
+import fetchProjects from '../../services/fetchProjects';
 
 const ProjectList = () => {
     const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchProjects = async () => {
+        const getProjects = async () => {
             try {
-                const querySnapshot = await getDocs(collection(db, "projects"));
-                const projectsData = querySnapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }));
+                const projectsData = await fetchProjects();
                 setProjects(projectsData);
-            } catch (error) {
-                console.error(error);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
             }
         };
 
-        fetchProjects();
+        getProjects();
     }, []);
 
     const handleAddNewProject = () => {
@@ -37,25 +36,26 @@ const ProjectList = () => {
                     Add New Project
                 </button>
             </div>
+            {loading && <p>Loading projects...</p>}
+            {error && <p>Error: {error}</p>}
             <div className="project-list">
-                {projects.length > 0 ? (
+                {!loading && projects.length > 0 ? (
                     projects.map((project) => (
                         <div key={project.id} className="project-card">
                             <h2>{project.name}</h2>
                             <p>{project.description || 'No description provided'}</p>
                             <p>
-                                <strong>Start Date:</strong> {new Date(project.startDate).toLocaleDateString()}
+                                <strong>Start Date:</strong>{' '}
+                                {new Date(project.startDate).toLocaleDateString()}
                             </p>
                             <p>
-                                <strong>End Date:</strong> {new Date(project.endDate).toLocaleDateString()}
-                            </p>
-                            <p>
-                                <strong>Priority:</strong> {project.priority || 'Not Set'}
+                                <strong>End Date:</strong>{' '}
+                                {new Date(project.endDate).toLocaleDateString()}
                             </p>
                         </div>
                     ))
                 ) : (
-                    <p>No projects available. Click "Add New Project" to create one!</p>
+                    !loading && <p>No projects available. Click "Add New Project" to create one!</p>
                 )}
             </div>
         </div>
