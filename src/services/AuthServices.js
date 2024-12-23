@@ -17,16 +17,15 @@ const getUserData = (uid, setUser) => {
 	}
 };
 
-const signInWithEmailAndPassword = async (email, password) => {
+const signInWithEmailAndPassword = async (email, password, onErrorFn) => {
 	try {
 		await auth.signInWithEmailAndPassword(email, password);
 	} catch (error) {
-		console.error(error);
-		// throw error;
+		onErrorFn(error);
 	}
 };
 
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (name, email, password, onErrorFn) => {
 	try {
 		const res = await auth.createUserWithEmailAndPassword(email, password);
 		const user = res.user;
@@ -37,8 +36,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
 			email,
 		});
 	} catch (error) {
-		console.error(error);
-		// throw error;
+		onErrorFn(error);
 	}
 };
 

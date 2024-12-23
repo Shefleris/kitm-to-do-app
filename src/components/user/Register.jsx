@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 // import { useAuthContext } from "../../contexts/AuthContext";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, registerWithEmailAndPassword } from "../../services/AuthServices";
+import ErrorMessage from "./ErrorMessage";
 
 const Register = ({ onSuccessRedirectRoute }) => {
 	const [userData, setUserData] = useState({
@@ -10,6 +11,7 @@ const Register = ({ onSuccessRedirectRoute }) => {
 		email: "",
 		password: "",
 	});
+	const [latestError, setLatestError] = useState(null);
 
 	// const { user, loading, error, registerWithEmailAndPassword } = useAuthContext();
 	const [user, loading, error] = useAuthState(auth);
@@ -26,7 +28,7 @@ const Register = ({ onSuccessRedirectRoute }) => {
 			navigate(onSuccessRedirectRoute);
 			return;
 		}
-	}, [loading, user]);
+	}, [loading, user, error, navigate, onSuccessRedirectRoute]);
 
 	const handleChange = (e) => {
 		setUserData({ ...userData, [e.target.name]: e.target.value });
@@ -35,7 +37,8 @@ const Register = ({ onSuccessRedirectRoute }) => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		// console.log("register form data state", userData);
-		registerWithEmailAndPassword(userData.name, userData.email, userData.password);
+		setLatestError(null);
+		registerWithEmailAndPassword(userData.name, userData.email, userData.password, setLatestError);
 	};
 
 	//TODO: error handling
@@ -54,7 +57,7 @@ const Register = ({ onSuccessRedirectRoute }) => {
 				<input name="password" value={userData.password} onChange={handleChange} type="password" placeholder="password" />
 				<button type="submit">Register</button>
 			</form>
-			{error && <div>something went wrong...</div>}
+			{latestError && <ErrorMessage errorObj={latestError} />}
 		</>
 	);
 	//the value attribute in input displays back what is in the state;

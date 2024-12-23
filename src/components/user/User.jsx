@@ -39,7 +39,7 @@ const User = () => {
 	}
 	return (
 		<div>
-			<Link to="/login">Sign in</Link>
+			<Link to="/login">Sign in / register</Link>
 		</div>
 	);
 };
