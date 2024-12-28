@@ -42,15 +42,15 @@ const ProjectList = () => {
                 {!loading && projects.length > 0 ? (
                     projects.map((project) => (
                         <div key={project.id} className="project-card">
-                            <h2>{project.name}</h2>
-                            <p>{project.description || 'No description provided'}</p>
+                            <h2>{project.projectName}</h2>
+                            <p>{project.projectDesc || 'No description provided'}</p>
                             <p>
                                 <strong>Start Date:</strong>{' '}
-                                {new Date(project.startDate).toLocaleDateString()}
+                                {new Date(project.projectStartDate).toLocaleDateString()}
                             </p>
                             <p>
                                 <strong>End Date:</strong>{' '}
-                                {new Date(project.endDate).toLocaleDateString()}
+                                {new Date(project.projectEndDate).toLocaleDateString()}
                             </p>
                         </div>
                     ))
