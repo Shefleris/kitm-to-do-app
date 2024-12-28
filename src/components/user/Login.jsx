@@ -10,6 +10,15 @@ const Login = ({ onSuccessRedirectRoute }) => {
 		email: "",
 		password: "",
 	});
+
+	const handleLogin = async () => {
+		// Simulate login logic
+		const isLoginSuccessful = true;
+		if (isLoginSuccessful) {
+			navigate(onSuccessRedirectRoute || "/dashboard");
+		}
+	};
+
 	const [latestError, setLatestError] = useState(null);
 
 	// const { user, loading, error, signInWithEmailAndPassword } = useAuthContext();
@@ -62,6 +71,7 @@ const Login = ({ onSuccessRedirectRoute }) => {
 				<button type="sign">Sign in</button>
 				<Link to="/register">Register</Link>
 			</form>
+
 			{latestError && <ErrorMessage errorObj={latestError} />}
 		</>
 	);

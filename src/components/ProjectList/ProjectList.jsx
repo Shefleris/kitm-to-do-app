@@ -10,19 +10,21 @@ const ProjectList = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const getProjects = async () => {
-            try {
-                const projectsData = await fetchProjects();
-                setProjects(projectsData);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
+    const getProjects = async () => {
+        try {
+            const projectsData = await fetchProjects();
+            console.log("Fetched projects data in ProjectList:", projectsData);
+            setProjects(projectsData);
+            console.log("Projects state after update:", projectsData);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
 
-        getProjects();
-    }, []);
+    getProjects();
+}, []);
 
     const handleAddNewProject = () => {
         navigate('/create-project');
@@ -40,17 +42,21 @@ const ProjectList = () => {
             {error && <p>Error: {error}</p>}
             <div className="project-list">
                 {!loading && projects.length > 0 ? (
-                    projects.map((project) => (
-                        <div key={project.id} className="project-card">
-                            <h2>{project.name}</h2>
-                            <p>{project.description || 'No description provided'}</p>
+                    projects.map((project, index) => (
+                        <div
+                            key={project.id || index}
+                            className="project-card"
+                            onClick={() => navigate(`/projects/${project.id}`, { state: { projectName: project.name } })}
+                        >
+                            <h2>{project.name || "Unnamed Project"}</h2>
+                            <p>{project.description || "No description provided"}</p>
                             <p>
                                 <strong>Start Date:</strong>{' '}
-                                {new Date(project.startDate).toLocaleDateString()}
+                                {project.startDate ? new Date(project.startDate).toLocaleDateString() : "Invalid or Missing Date"}
                             </p>
                             <p>
                                 <strong>End Date:</strong>{' '}
-                                {new Date(project.endDate).toLocaleDateString()}
+                                {project.endDate ? new Date(project.endDate).toLocaleDateString() : "Invalid or Missing Date"}
                             </p>
                         </div>
                     ))

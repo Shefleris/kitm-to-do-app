@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, getUserData, logout } from "../../services/AuthServices";
 
 const User = () => {
+	const navigate = useNavigate();
 	const [userData, setuserData] = useState({});
 
 	// const { user, loading, error, getUserData } = useAuthContext();
@@ -34,6 +35,10 @@ const User = () => {
 			<div>
 				<div>{`Hello ${userData.name}`}</div>
 				<button onClick={logout}>Sign out</button>
+				<div>
+					<h2>User Component</h2>
+					<button onClick={() => navigate("/projects")}>Go to Project List</button>
+				</div>
 			</div>
 		);
 	}

@@ -5,6 +5,7 @@ import "firebase/compat/auth";
 const auth = app.auth();
 const db = app.firestore();
 
+
 const getUserData = (uid, setUser) => {
 	if (!uid) return;
 	try {

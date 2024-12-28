@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "../user/Login";
 import Register from "../user/Register";
 import User from "../user/User";
+import ProjectList from "../ProjectList/ProjectList";
+import ProjectPage from "../ProjectPage/ProjectPage";
 
 import "./App.css";
 
@@ -18,10 +20,12 @@ function App() {
 					<Route path="/dashboard" element={<div>{"tasks dashboard"}</div>} />
 					<Route path="/login" element={<Login onSuccessRedirectRoute="/dashboard" />} />
 					<Route path="/register" element={<Register onSuccessRedirectRoute="/dashboard" />} />
+					<Route path="/projects" element={<ProjectList />} />
+                    <Route path="/projects/:projectId" element={<ProjectPage />} />
 				</Routes>
 			</Router>
 		</>
-	)
+	);
 }
 
 export default App;
