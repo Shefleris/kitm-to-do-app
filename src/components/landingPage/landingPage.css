@@ -1,0 +1,42 @@
+@import "../../css/variables.css";
+
+.landing {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.landing__body {
+    display: flex;
+    flex-direction: column;
+}
+
+p, h1 {
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.button {
+    background-color: var(--btn-primary);
+    color:#fff;
+    padding:1rem 3rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);    
+}
+
+.button--outline {
+    border: 1px solid var(--btn-primary);
+    color:var(--btn-primary);
+    background-color: transparent;
+}
+
+.button--outline:hover{
+    background-color: var(--btn-primary);
+    color:#fff;
+    text-decoration: none; 
+}
