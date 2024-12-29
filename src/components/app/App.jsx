@@ -19,7 +19,7 @@ function App() {
 					<Route path="/dashboard" element={<ProjectList/>} />
 					<Route path="/login" element={<Login onSuccessRedirectRoute="/dashboard" />} />
 					<Route path="/register" element={<Register onSuccessRedirectRoute="/dashboard" />} />
-          <Route path="/projects/:projectId" element={<ProjectPage />} />
+          			<Route path="/project/:projectId" element={<ProjectPage />} />
 				</Routes>
 			</Router>
 		</div>
