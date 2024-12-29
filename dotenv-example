@@ -1,6 +1,0 @@
-VITE_apiKey = "insert",
-VITE_authDomain = "insert",
-VITE_projectId = "insert",
-VITE_storageBucket = "insert",
-VITE_messagingSenderId = "insert",
-VITE_appId = "insert"
