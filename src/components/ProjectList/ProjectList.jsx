@@ -1,6 +1,6 @@
+import './ProjectList.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './ProjectList.css';
 import fetchProjects from '../../services/fetchProjects';
 
 const ProjectList = () => {
@@ -27,7 +27,7 @@ const ProjectList = () => {
 }, []);
 
     const handleAddNewProject = () => {
-        navigate('/create-project');
+        navigate('/add-project');
     };
 
     return (
