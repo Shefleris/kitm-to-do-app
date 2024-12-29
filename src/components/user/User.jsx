@@ -37,7 +37,7 @@ const User = () => {
 				<button onClick={logout}>Sign out</button>
 				<div>
 					<h2>User Component</h2>
-					<button onClick={() => navigate("/projects")}>Go to Project List</button>
+					<button onClick={() => navigate("/dashboard")}>Go to Project List</button>
 				</div>
 			</div>
 		);
