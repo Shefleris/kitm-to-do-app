@@ -2,5 +2,64 @@
 
 #root {
     width: 100vw;
-    height: 100vh;
+    height: 1000px;
+    background-color: #d9cdfa;
+}
+.form-div {
+    width: 1000px;
+    height: 1000px;
+    min-height: 800px;
+    background-image: url(src/img/reg-image.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    border-radius: 300px;
+    margin-top: 30px;
+}
+.signin-register-btn{
+    background-color: #eae5ff;
+    text-decoration: none;
+    color: #5F33E1;
+    border: solid 1px #5F33E1;
+    border-radius: 25px;
+    padding: 10px;
+}
+.signin-register-btn:hover{
+    background-color: #5F33E1;
+    color: white;
+}
+.register-heading{
+    margin-top: 100px;
+    text-align: center;
+    color: #e6a7ff;
+}
+.form-element{
+    display: flex;
+    width: 50%;
+    flex-wrap: wrap;
+    margin-left: 250px;
+    margin-top: 50px;
+    justify-content: center;
+    text-align: center;
+}
+.form-input{
+    display: block;
+    flex-grow: 1;
+    width: 75%;
+    height: 35px;
+    margin: 50px;
+    border-radius: 25px;
+    border: none;
+    text-align: center;
+}
+.register-btn{
+    width: 80%;
+    background-color: #cbbaff;
+    border-radius: 25px;
+    padding: 5px;
+    border: solid 1px gray;
+}
+.register-btn:hover{
+    background-color: #5F33E1;
+    color: white;
 }
