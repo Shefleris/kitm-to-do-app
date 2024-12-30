@@ -44,7 +44,7 @@ const User = () => {
 	}
 	return (
 		<div>
-			<Link to="/login">Sign in / register</Link>
+			<Link className="signin-register-btn" to="/login">Sign in / register</Link>
 		</div>
 	);
 };

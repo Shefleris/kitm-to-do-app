@@ -50,14 +50,16 @@ const Register = ({ onSuccessRedirectRoute }) => {
 	//TODO: purely UI components in separate JSX files
 	return (
 		<>
-			<h2>Register</h2>
-			<form onSubmit={submitHandler}>
-				<input name="name" value={userData.name} onChange={handleChange} type="text" placeholder="user name" />
-				<input name="email" value={userData.email} onChange={handleChange} type="email" placeholder="email" />
-				<input name="password" value={userData.password} onChange={handleChange} type="password" placeholder="password" />
-				<button type="submit">Register</button>
-			</form>
-			{latestError && <ErrorMessage errorObj={latestError} />}
+			<div className="form-div">
+				<h2 className="register-heading">Register</h2>
+				<form className="form-element" onSubmit={submitHandler}>
+					<input className="form-input" name="name" value={userData.name} onChange={handleChange} type="text" placeholder="Username" />
+					<input className="form-input" name="email" value={userData.email} onChange={handleChange} type="email" placeholder="Email" />
+					<input className="form-input" name="password" value={userData.password} onChange={handleChange} type="password" placeholder="Password" />
+					<button className="register-btn" type="submit">Register</button>
+				</form>
+				{latestError && <ErrorMessage errorObj={latestError} />}
+			</div>
 		</>
 	);
 	//the value attribute in input displays back what is in the state;
