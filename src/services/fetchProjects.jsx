@@ -1,9 +1,10 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query,where } from "firebase/firestore";
 import { db } from "../firebase";
 
-const fetchProjects = async () => {
+const fetchProjects = async (user_id) => {
     try {
-        const querySnapshot = await getDocs(collection(db, "projects"));
+        const queryRef = query(collection(db, "projects"), where("uid", "==", user_id)) 
+        const querySnapshot = await getDocs(queryRef);
         const projects = querySnapshot.docs.map((doc) => {
             const data = doc.data();
             return {

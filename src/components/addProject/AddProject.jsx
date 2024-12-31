@@ -41,6 +41,7 @@ const AddProject = () => {
 	};
 
 	const deleteProject = () => {
+		e.preventDefault();
 		service.deleteDocument(id, "projects")
 		navigate(`/dashboard`)
 	}
@@ -108,11 +109,13 @@ const AddProject = () => {
 						</label>
 					</div>
 				</div>
-				<button type="submit" className="btn btn-primary">
-					{id ? "Save" : "Create"}
-				</button>
+				<div className="form__buttons">
+					<button type="submit" className="btn btn-primary">
+						{id ? "Save" : "Create"}
+					</button>
+					{id ? <button type="button" className="btn btn-primary" onClick={deleteProject}>Delete</button> : ""}
+				</div>
 			</form>
-			{id ? <button className="btn btn-primary" onClick={deleteProject}>Delete</button> : ""}
 		</div>
 	);
 };

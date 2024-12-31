@@ -2,29 +2,32 @@ import './ProjectList.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import fetchProjects from '../../services/fetchProjects';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from '../../services/AuthServices';
 
 const ProjectList = () => {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const [user, load, err] = useAuthState(auth);
 
     useEffect(() => {
-    const getProjects = async () => {
-        try {
-            const projectsData = await fetchProjects();
-            console.log("Fetched projects data in ProjectList:", projectsData);
-            setProjects(projectsData);
-            console.log("Projects state after update:", projectsData);
-        } catch (err) {
-            setError(err.message);
-        } finally {
-            setLoading(false);
-        }
+        const getProjects = async () => {
+            try {
+                const projectsData = await fetchProjects(user.uid);
+                console.log("Fetched projects data in ProjectList:", projectsData);
+                setProjects(projectsData);
+                console.log("Projects state after update:", projectsData);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
     };
 
     getProjects();
-}, []);
+}, [user]);
 
     const handleAddNewProject = () => {
         navigate('/add-project');
