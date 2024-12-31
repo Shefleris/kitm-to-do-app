@@ -1,14 +1,7 @@
 @import "../../css/floating-labels.css";
 @import "../../css/variables.css";
 
-.form__field {
-    background-color: #fff;
-    padding: 1rem;
-    margin-bottom: 1rem ;
-    border-radius: var(--border-radius);
-}
-
-.card {
+.form__login {
     align-self: center;
     width: 100%;
     max-width: 900px;

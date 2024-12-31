@@ -50,14 +50,16 @@ const ProjectList = () => {
                         >
                             <h2>{project.name || "Unnamed Project"}</h2>
                             <p>{project.description || "No description provided"}</p>
-                            <p>
-                                <strong>Start Date:</strong>{' '}
-                                {project.startDate ? new Date(project.startDate).toLocaleDateString() : "Invalid or Missing Date"}
-                            </p>
-                            <p>
-                                <strong>End Date:</strong>{' '}
-                                {project.endDate ? new Date(project.endDate).toLocaleDateString() : "Invalid or Missing Date"}
-                            </p>
+                            <div className='project__dates'>
+                                <p>
+                                    <strong>Start Date:</strong>{' '}
+                                    {project.startDate ? new Date(project.startDate).toLocaleDateString() : "Invalid or Missing Date"}
+                                </p>
+                                <p>
+                                    <strong>End Date:</strong>{' '}
+                                    {project.endDate ? new Date(project.endDate).toLocaleDateString() : "Invalid or Missing Date"}
+                                </p> 
+                            </div>
                         </div>
                     ))
                 ) : (

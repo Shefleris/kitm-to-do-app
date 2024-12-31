@@ -51,11 +51,8 @@ const AddProject = () => {
 
 	return (
 		<div className="card">
-			<div className="card-header">
-				<h2>{id ? "Edit" : "Create"} Project</h2>
-			</div>
-			<div className="card-body">
-				<form className="form" onSubmit={formSubmit}>
+			<form className="form" onSubmit={formSubmit}>
+				<div className="form__field">
 					<div className="form-floating">
 						<input
 							type="text"
@@ -68,6 +65,8 @@ const AddProject = () => {
 						/>
 						<label htmlFor="projectName">Project name</label>
 					</div>
+				</div>
+				<div className="form__field">
 					<div className="form-floating">
 						<textarea
 							name="projectDesc"
@@ -79,6 +78,8 @@ const AddProject = () => {
 						/>
 						<label htmlFor="projectDesc">Description</label>
 					</div>
+				</div>
+				<div className="form__field">
 					<div className="form-floating">
 						<span></span>
 						<input
@@ -92,6 +93,8 @@ const AddProject = () => {
 							Start date
 						</label>
 					</div>
+				</div>
+				<div className="form__field">
 					<div className="form-floating">
 						<input
 							type="date"
@@ -104,12 +107,12 @@ const AddProject = () => {
 							End date
 						</label>
 					</div>
-					<button type="submit" className="btn btn-primary">
-						{id ? "Save" : "Create"}
-					</button>
-				</form>
-				{id ? <button className="btn btn-primary" onClick={deleteProject}>Delete</button> : ""}
-			</div>
+				</div>
+				<button type="submit" className="btn btn-primary">
+					{id ? "Save" : "Create"}
+				</button>
+			</form>
+			{id ? <button className="btn btn-primary" onClick={deleteProject}>Delete</button> : ""}
 		</div>
 	);
 };

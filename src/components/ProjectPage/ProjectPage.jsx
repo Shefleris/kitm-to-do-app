@@ -1,11 +1,13 @@
+import "./projectPage.css";
 import React, { useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
 
 const ProjectPage = () => {
     const location = useLocation();
     const projectName = location.state?.projectName || "Unknown Project";
-
     const [filter, setFilter] = useState("All");
+    const projectId = location.pathname.split('/');
+    const navigate = useNavigate()
 
     // pavyzdiniai taskai filtravimui
     const tasks = [
@@ -15,15 +17,22 @@ const ProjectPage = () => {
         { id: 4, name: "Task 4", description: "This is the fourth task", status: "In Progress" },
     ];
 
+    const handleEdit = () => {
+        navigate(`/update-project/${projectId[2]}`)
+    }
+
     const filteredTasks = filter === "All" ? tasks : tasks.filter((task) => task.status === filter);
 
     return (
         <div className="project-page">
-            <h1>{projectName}</h1>
+            <div className="project__header">
+                <h1>{projectName}</h1>
+                <button onClick={handleEdit}>Edit</button>
+            </div>
             <div className="task-filters">
-                <button onClick={() => setFilter("All")}>All</button>
-                <button onClick={() => setFilter("To Do")}>To Do</button>
-                <button onClick={() => setFilter("In Progress")}>In Progress</button>
+                <button className="button__filter" onClick={() => setFilter("All")}>All</button>
+                <button className="button__filter" onClick={() => setFilter("To Do")}>To Do</button>
+                <button className="button__filter" onClick={() => setFilter("In Progress")}>In Progress</button>
             </div>
             <div className="task-list">
                 {filteredTasks.length > 0 ? (
