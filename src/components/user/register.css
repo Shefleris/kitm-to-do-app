@@ -1,0 +1,49 @@
+@import "../../css/variables.css";
+
+.form-div {
+    background-image: url(src/img/reg-image.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    border-radius: 800px;
+    height: 100%;
+    min-height: 800px;
+    max-width: 1000px;
+    width: 100%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.register-heading{
+    text-align: center;
+    color: #e6a7ff;
+    margin-bottom: 3rem;
+}
+.form-element{
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.form-input{
+    border-radius: 25px;
+    border: none;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.register-btn{
+    width: 80%;
+    background-color: #cbbaff;
+    border-radius: 25px;
+    padding: 5px;
+    border: solid 1px var(--btn-primary);
+    color: var(--btn-primary);
+}
+.register-btn:hover{
+    background-color: var(--btn-primary);
+    color: white;
+}

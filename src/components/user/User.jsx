@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, getUserData, logout } from "../../services/AuthServices";
 
+
 const User = () => {
 	const navigate = useNavigate();
 	const [userData, setuserData] = useState({});
@@ -20,7 +21,7 @@ const User = () => {
 		if (!user) {
 			//this effect triggers when auth state changes (e.g. logout)
 			// //TODO: proper routing; redirect to landing view when not signed in?
-			// navigate("/");
+			navigate("/");
 			return;
 		}
 		getUserData(user?.uid, setuserData);
@@ -33,20 +34,19 @@ const User = () => {
 		//logout action will affect the auth state and trigger an effect, causing actions like re-render or redirect
 		return (
 			<div>
-				<div>{`Hello ${userData.name}`}</div>
-				<button onClick={logout}>Sign out</button>
 				<div>
-					<h2>User Component</h2>
-					<button onClick={() => navigate("/dashboard")}>Go to Project List</button>
+					<div>Hello!</div>
+					<div>{`${userData.name}`}</div>
 				</div>
+				<button onClick={logout}>Sign out</button>
 			</div>
 		);
 	}
-	return (
-		<div>
-			<Link className="signin-register-btn" to="/login">Sign in / register</Link>
-		</div>
-	);
+	// return (
+	// 	<nav>
+	// 		<Link className="signin-register-btn" to="/login">Sign in / register</Link>
+	// 	</nav>
+	// );
 };
 
 export default User;

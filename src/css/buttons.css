@@ -1,0 +1,23 @@
+
+.button {
+    background-color: var(--btn-primary);
+    color:#fff;
+    padding:1rem 3rem;
+    border-radius: 1.5rem / 1rem;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
+}
+
+.button--outline {
+    color:var(--btn-primary);
+    border: 1px solid var(--btn-primary);
+    background-color: transparent;
+    transition-duration: 0.5s;  
+}
+
+.button--outline:hover{
+    color:#fff;
+    background-color: var(--btn-primary);
+    text-decoration: none;   
+}

@@ -1,0 +1,80 @@
+/* https://github.com/anydigital/float-label-css/blob/master/dist/float-label.css */
+
+.form-control {
+    width: 100%;
+}
+
+.form-floating {
+    display: block;
+    position: relative;
+  }
+.form-floating label, .form-floating > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: text;
+    font-size: 75%;
+    opacity: 1;
+    -webkit-transition: all .2s;
+            transition: all .2s;
+}
+.form-floating select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.form-floating textarea {
+    width: 100%;
+}
+.form-floating input, .form-floating select, .form-floating textarea {
+    font-size: inherit;
+    padding-top: 1em;
+    margin-bottom: 2px;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+.form-floating input::-webkit-input-placeholder, .form-floating select::-webkit-input-placeholder, .form-floating textarea::-webkit-input-placeholder {
+    opacity: 1;
+    -webkit-transition: all .2s;
+            transition: all .2s;
+}
+.form-floating input::-moz-placeholder, .form-floating select::-moz-placeholder, .form-floating textarea::-moz-placeholder {
+    opacity: 1;
+    transition: all .2s;
+}
+.form-floating input:-ms-input-placeholder, .form-floating select:-ms-input-placeholder, .form-floating textarea:-ms-input-placeholder {
+    opacity: 1;
+    transition: all .2s;
+}
+.form-floating input::placeholder, .form-floating select::placeholder, .form-floating textarea::placeholder {
+    opacity: 1;
+    -webkit-transition: all .2s;
+            transition: all .2s;
+}
+.form-floating input:placeholder-shown:not(:focus)::-webkit-input-placeholder, .form-floating select:placeholder-shown:not(:focus)::-webkit-input-placeholder, .form-floating textarea:placeholder-shown:not(:focus)::-webkit-input-placeholder {
+    opacity: 0;
+}
+.form-floating input:placeholder-shown:not(:focus)::-moz-placeholder, .form-floating select:placeholder-shown:not(:focus)::-moz-placeholder, .form-floating textarea:placeholder-shown:not(:focus)::-moz-placeholder {
+    opacity: 0;
+}
+.form-floating input:placeholder-shown:not(:focus):-ms-input-placeholder, .form-floating select:placeholder-shown:not(:focus):-ms-input-placeholder, .form-floating textarea:placeholder-shown:not(:focus):-ms-input-placeholder {
+    opacity: 0;
+}
+.form-floating input:placeholder-shown:not(:focus)::placeholder, .form-floating select:placeholder-shown:not(:focus)::placeholder, .form-floating textarea:placeholder-shown:not(:focus)::placeholder {
+    opacity: 0;
+}
+.form-floating input:placeholder-shown:not(:focus) + *, .form-floating select:placeholder-shown:not(:focus) + *, .form-floating textarea:placeholder-shown:not(:focus) + * {
+    font-size: 150%;
+    opacity: .5;
+    top: .25em;
+}
+.form-floating input:focus, .form-floating select:focus, .form-floating textarea:focus {
+    outline: none;
+    border-color: rgba(0, 0, 0, 0.5);
+}
+.form-floating select {
+    padding-right: 1em;
+    background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 0.5em bottom 0.25em;
+    background-size: 8px 10px;
+}

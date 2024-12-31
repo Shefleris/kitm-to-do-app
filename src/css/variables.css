@@ -1,3 +1,8 @@
 :root {
+    --primary-text:#24252C;
+    --secondary-tex:#6E6A7C;
     --btn-primary:#5F33E1;
+    --btn-text:#FFFFFF;
+    --bg-primary:#fff;
+    --border-radius:1rem;
 }
