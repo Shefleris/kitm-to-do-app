@@ -1,0 +1,21 @@
+
+.profile {
+    position: relative;
+    .profile__header {
+        display: flex;
+        align-items: center;
+        img {
+            border: 1px solid black;
+            border-radius: 50%;
+            background-color: #5F33E1;;
+            aspect-ratio: 1/1;
+            max-height: 4rem;
+            margin-right: 1rem;
+        }
+    }
+
+    .profile__dropdown {
+        margin-top: 0.5rem;
+        position: absolute;
+    }
+}
