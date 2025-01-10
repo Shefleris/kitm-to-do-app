@@ -19,6 +19,7 @@ const Header = () => {
                 </nav>
             );
         case "add-project":
+        case "update-project":
             return (
                 <nav>
                     <button onClick={() => navigate("/dashboard")}>{`<`}</button>
@@ -28,22 +29,23 @@ const Header = () => {
                     <div></div>
                 </nav>
             )
-        case "update-project":
-            return (
-                <nav>
-                    <button onClick={() => navigate("/dashboard")}>{`<`}</button>
-                    <div>
-                        <h2>Update project</h2>
-                    </div>
-                    <div></div>
-                </nav>
-            );
+
         case "projects":
             return (
                 <nav>
                     <button onClick={() => navigate("/dashboard")}>{`<`}</button>
                     <div>
                         <h2>Project Tasks</h2>
+                    </div>
+                    <div></div>
+                </nav>
+            );
+        case "add-task":
+            return (
+                <nav>
+                    <button onClick={() => navigate("/dashboard")}>{`<`}</button>
+                    <div>
+                        <h2>Add task</h2>
                     </div>
                     <div></div>
                 </nav>
