@@ -3,16 +3,36 @@ import { useNavigate, Link } from "react-router-dom";
 // import { useAuthContext } from "../../contexts/AuthContext";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, getUserData, logout } from "../../services/AuthServices";
-
+import "./user.scss";
 
 const User = () => {
 	const navigate = useNavigate();
 	const [userData, setuserData] = useState({});
-
+	const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 	// const { user, loading, error, getUserData } = useAuthContext();
 	const [user, loading, error] = useAuthState(auth);
 
 	// const navigate = useNavigate();
+
+	// document.addEventListener("click", e => {
+	// 	const isDropdownButton = e.target.matches("[data-dropdown-button]")
+	// 	if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return
+	  
+	// 	let currentDropdown
+	// 	if (isDropdownButton) {
+	// 	  currentDropdown = e.target.closest("[data-dropdown]")
+	// 	  currentDropdown.classList.toggle("active")
+	// 	}
+	  
+	// 	document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
+	// 	  if (dropdown === currentDropdown) return
+	// 	  dropdown.classList.remove("active")
+	// 	})
+	//   })
+
+	const toggleDropdown = () =>{
+		isDropdownOpen === false ? setIsDropdownOpen(true): setIsDropdownOpen(false);
+	}
 
 	useEffect(() => {
 		// console.log("auth state effect in User", user, error);
@@ -33,12 +53,19 @@ const User = () => {
 	if (user) {
 		//logout action will affect the auth state and trigger an effect, causing actions like re-render or redirect
 		return (
-			<div>
-				<div>
-					<div>Hello!</div>
-					<div>{`${userData.name}`}</div>
+			<div onClick={toggleDropdown} className="profile" >
+				<div className="profile__header">
+					<img src="#" alt="Profile picture" />
+					<div>
+						<p>Hello!</p>
+						<p>{`${userData.name}`}</p>
+					</div>
 				</div>
-				<button onClick={logout}>Sign out</button>
+				{isDropdownOpen && (
+				<div className="profile__dropdown">
+					<button onClick={logout}>Sign out</button>
+				</div>
+			)}
 			</div>
 		);
 	}
