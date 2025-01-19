@@ -6,7 +6,7 @@ import Task from "../task/Task";
 import { useProjectsContext } from "../../contexts/projectsContext";
 import LoadingPlaceholder from "../ui/LoadingPlaceholder";
 
-const TaskList = (filter) => {
+const TaskList = ({ filter }) => {
 	const [tasks, setTasks] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
@@ -20,22 +20,23 @@ const TaskList = (filter) => {
 		const getTasksList = async () => {
 			try {
 				const data = await service.getTasks(user.uid, filter);
-				// console.log(data);
 
 				//TODO: figure out how to properly await projectsLoading
 				if (!projectsLoading && projects?.length) {
-					data.forEach((task) => (task.projectName = projects.find((project) => project.id === task.projectId).name));
+					data.forEach((task) => (task.projectName = projects.find((project) => project.id === task.projectId)?.name ?? undefined));
 				}
 
 				setTasks(data);
 			} catch (err) {
+				console.log(err);
 				setError(err.message);
 			} finally {
 				setLoading(false);
 			}
 		};
 
-		if (authLoading) return;
+		//GV: not the best idea to wait for projectsLoading, better would be listing the tasks and dynamically updating their projectName when projects data is ready
+		if (authLoading || projectsLoading) return;
 		if (user) {
 			getTasksList();
 		}
@@ -45,11 +46,15 @@ const TaskList = (filter) => {
 		return <LoadingPlaceholder>wait...</LoadingPlaceholder>;
 	}
 
+	if (error) {
+		return <>Something went wrong...</>;
+	}
+
 	return (
 		<>
 			{tasks?.length ? (
 				tasks.map((task, index) => (
-					<Task key={task.id || index} formFactor="listItem" task={task} /*doRenderProjectLink={!("projectId" in filter)}*/></Task>
+					<Task key={task.id || index} formFactor="listItem" task={task} doRenderProjectLink={!(filter && "projectId" in filter)}></Task>
 				))
 			) : (
 				<p>No tasks matching the filter</p>
