@@ -1,6 +1,6 @@
 import firebase from "../firebase";
 import {db} from "../firebase";
-import {doc, getDoc, addDoc, updateDoc, deleteDoc,  collection} from "firebase/firestore"; 
+import {doc, getDoc, addDoc, updateDoc, deleteDoc,  collection, query, where} from "firebase/firestore"; 
 
 //@POST
 export const addDocument = async (data, collectionName = "projects") => {
@@ -22,6 +22,17 @@ export const updateDocument = async (id, data, collectionName = "projects") => {
 		console.error(error);
 	}
 };
+
+// @GET documents
+export const getDocuments = async (user_id, collectionName = "projects") => {
+	try {
+		const queryRef = query(doc(db, collectionName), where("uid", "==", user_id))
+		const docRef = await getDoc(queryRef)
+		return docRef.data()
+	} catch (error) {
+		console.error(error);
+	}
+}
 
 // @GET document by :id 
 export const getDocumentById = async (id, collectionName = "projects") => {

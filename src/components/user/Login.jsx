@@ -1,4 +1,4 @@
-import "./login.css"
+import "./login.css";
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 // import { useAuthContext } from "../../contexts/AuthContext";
@@ -12,13 +12,13 @@ const Login = ({ onSuccessRedirectRoute }) => {
 		password: "",
 	});
 
-	const handleLogin = async () => {
-		// Simulate login logic
-		const isLoginSuccessful = true;
-		if (isLoginSuccessful) {
-			navigate(onSuccessRedirectRoute || "/dashboard");
-		}
-	};
+	// const handleLogin = async () => {
+	// 	// Simulate login logic
+	// 	const isLoginSuccessful = true;
+	// 	if (isLoginSuccessful) {
+	// 		navigate(onSuccessRedirectRoute || "/dashboard");
+	// 	}
+	// };
 
 	const [latestError, setLatestError] = useState(null);
 
@@ -69,7 +69,7 @@ const Login = ({ onSuccessRedirectRoute }) => {
 			<form onSubmit={submitHandler}>
 				<div className="form__field">
 					<div className="form-floating">
-						<input className="form-control" name="email" value={userData.email} onChange={handleChange} type="email" placeholder="email"/>
+						<input className="form-control" name="email" value={userData.email} onChange={handleChange} type="email" placeholder="email" />
 						<label htmlFor="email">Email</label>
 					</div>
 				</div>
