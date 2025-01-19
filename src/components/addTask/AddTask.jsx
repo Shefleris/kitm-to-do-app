@@ -5,7 +5,7 @@ import { auth } from "../../services/AuthServices.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useProjectsContext } from "../../contexts/projectsContext";
 import LoadingPlaceholder from "../ui/LoadingPlaceholder.jsx";
-import "./addTask.css";
+import "./addTask.scss";
 
 const AddTask = () => {
 	const navigate = useNavigate();

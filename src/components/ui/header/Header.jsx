@@ -1,4 +1,4 @@
-import "./header.css";
+import "./header.scss";
 import { useLocation, useNavigate } from "react-router-dom";
 import User from "../../user/User";
 
