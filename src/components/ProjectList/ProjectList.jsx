@@ -1,4 +1,4 @@
-import "./ProjectList.css";
+import "./ProjectList.scss";
 // import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 // import fetchProjects from "../../services/fetchProjects";
