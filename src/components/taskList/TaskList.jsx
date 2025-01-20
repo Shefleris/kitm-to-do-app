@@ -51,7 +51,7 @@ const TaskList = ({ filter }) => {
 	}
 
 	return (
-		<>
+		<div>
 			{tasks?.length ? (
 				tasks.map((task, index) => (
 					<Task key={task.id || index} formFactor="listItem" task={task} doRenderProjectLink={!(filter && "projectId" in filter)}></Task>
@@ -59,7 +59,7 @@ const TaskList = ({ filter }) => {
 			) : (
 				<p>No tasks matching the filter</p>
 			)}
-		</>
+		</div>
 	);
 };
 

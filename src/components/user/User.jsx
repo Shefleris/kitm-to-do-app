@@ -60,7 +60,7 @@ const User = () => {
 		return (
 			<div onClick={toggleDropdown} className="profile">
 				<div className="profile__header">
-					<img src="#" alt="Profile picture" />
+					<img src="src\img\vite.svg" alt="Profile picture" />
 					<div>
 						<p>Hello!</p>
 						<p>{`${userData.name}`}</p>
