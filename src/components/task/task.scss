@@ -1,0 +1,8 @@
+@use '../../scss';
+
+.container__task {
+    @include scss.container--center;
+    & > div{
+        margin-bottom: 0.5rem;
+    }
+};

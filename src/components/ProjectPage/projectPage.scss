@@ -1,69 +1,44 @@
-@import "../../css/variables.css";
+@use '../../scss';
 
 .project-page {
-    align-self: center;
-    width:100%;
-    max-width: 900px;
+    @include scss.container--center;
 }
 
 .project__header {
     display: flex;
-    align-items: middle;
-    gap:15px;
+    align-items: center;
+    margin-bottom: 1rem;
+    & > button {
+        @include scss.button--outline;
+        padding: 0 1rem;
+        margin-bottom: 0;
+        margin-left: auto;
+    }
 }
 
 .task-filters {
-    margin-bottom: 15px;
+    margin-bottom: 0.7rem;
     display: flex;
-    gap: 15px;
-}
+    gap: 0.5rem;
 
-.project__header > button {
-    text-decoration: none;
-    color:var(--btn-primary);
-    background-color: transparent; 
-    border: 1px solid var(--btn-primary);
-    border-radius: 1rem;
-    margin-bottom: 15px;
-    padding: 0 1rem;
-    transition-duration: 0.5s;
-}
+    .button__filter {
+        @include scss.button--outline;
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        border-radius: 1rem;
+    }
+};
 
-.project__header > button:hover{
-    color:#fff;
-    background-color: var(--btn-primary);
-}
-
-.button__filter {
-    color:var(--btn-primary);
-    background-color: transparent; 
-    border: 1px solid var(--btn-primary);
-    border-radius: 2rem;
-    padding: 0 1rem;
-    transition-duration: 0.5s;
-    text-decoration: none;
-}
-
-.button__filter:hover {
-    color:#fff;
-    background-color: var(--btn-primary);
-}
 
 .task-list {
     display: flex;
     flex-direction: column;
-    gap:15px
+    gap:15px;
 }
 
 .task-card {
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: var(--border-radius);
-    background-color: var(--bg-primary);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.task-card p {
-    margin:0;
+    @include scss.card;
+    p {
+        margin:0;
+    }
 }

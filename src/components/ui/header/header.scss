@@ -1,26 +1,22 @@
-@import "../../../css/variables.css";
-@import "../../../css/buttons.css";
+@use '../../../scss';
 
-nav {
-	max-width: 900px;
-	width: 100%;
-	align-self: center;
+header {
+	@include scss.container--center;
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 2rem;
+	> button {
+		@include scss.button--base;
+		padding: 1rem 1rem;
+		background-color: scss.$btn_bg-secondary;
+		color: scss.$btn_text;
+		font-weight: 600;
+		&:hover {
+			color: #fff;
+			background-color: scss.$btn_bg-primary;
+			text-decoration: none;
+		}
+	}
+	
 }
 
-nav button {
-	color: var(--btn-primary);
-	border: 1px solid var(--btn-primary);
-	background-color: transparent;
-	transition-duration: 0.5s;
-	border-radius: var(--border-radius);
-	padding: 0 1rem;
-}
-
-nav button:hover {
-	color: #fff;
-	background-color: var(--btn-primary);
-	text-decoration: none;
-}

@@ -52,6 +52,7 @@ const Register = ({ onSuccessRedirectRoute }) => {
 	return (
 		<>
 			<div className="form-div">
+				<img src="src/img/female-sitting-on-the-floor.png" alt="decorative image" />
 				<h2 className="register-heading">Register</h2>
 				<form className="form-element" onSubmit={submitHandler}>
 					<input className="form-input" name="name" value={userData.name} onChange={handleChange} type="text" placeholder="Username" />

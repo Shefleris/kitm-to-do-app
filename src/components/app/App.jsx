@@ -35,13 +35,14 @@ function App() {
 						element={<Register onSuccessRedirectRoute="/dashboard" />}
 					/>
 					<Route element={<AppLayout />}>
-						<Route path="/dashboard" element={<Dashboard />} />
-						<Route path="/user" element={<User />} />
+						{/* <Route path="/dashboard" element={<Dashboard />} /> */}
+						<Route path="/dashboard" element={<ProjectList />} />
+						{/* <Route path="/user" element={<User />} /> */}
 						<Route path="/projects" element={<ProjectList />} />
 						<Route path="/projects/:projectId" element={<ProjectPage />} />
 						<Route path="/add-project" element={<AddProject />} />
 						<Route path="/update-project/:id" element={<AddProject />} />
-						<Route path="/tasks" element={<TaskList />} />
+						{/* <Route path="/tasks" element={<TaskList />} /> */} 
 						<Route path="/tasks/:taskId" element={<TaskPage />} />
 						<Route path="/add-task" element={<AddTask />} />
 						<Route path="/update-task/:id" element={<AddTask />} />
