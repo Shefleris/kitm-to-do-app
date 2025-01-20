@@ -1,7 +1,7 @@
 import { createContext, useReducer, useContext, useEffect } from "react";
 import reducer from "../reducers/reducer";
 import { fetchProjectsWithUpdateCallback } from "../services/fetchProjects";
-import * as actions from "../actions/actions";
+import * as actions from "../constants/actions";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../services/AuthServices";
 

@@ -7,11 +7,15 @@ export const getTasks = async (uid, queryParams) => {
 	if (queryParams?.projectId) {
 		queryConditions.push(where("projectId", "==", queryParams.projectId));
 	}
-	if (queryParams?.status === "To Do") {
-		queryConditions.push(where("taskState", "==", "not started"));
+	if (queryParams?.taskState?.length) {
+		queryConditions.push(where("taskState", "in", queryParams.taskState));
 	}
-	if (queryParams?.status === "In Progress") {
-		queryConditions.push(where("taskState", "==", "in progress"));
+	if (queryParams?.taskPriority?.length) {
+		queryConditions.push(where("taskPriority", "in", queryParams.taskPriority));
+	}
+	//TODO: text fragment search (not so straightforward? https://firebase.google.com/docs/firestore/solutions/search)
+	if (queryParams?.taskName) {
+		queryConditions.push(where("taskName", "==", queryParams.taskName));
 	}
 
 	try {

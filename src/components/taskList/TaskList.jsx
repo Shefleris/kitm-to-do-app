@@ -12,9 +12,6 @@ const TaskList = ({ filter }) => {
 	const [error, setError] = useState(null);
 	const [user, authLoading, authError] = useAuthState(auth);
 	const { projects, projectsLoading } = useProjectsContext();
-	// const [filterByStatus, setFilterByStatus] = useState(null);
-	// const [filterByDate, setfilterByDate] = useState(null);
-	//filters will come from props in this component
 
 	useEffect(() => {
 		const getTasksList = async () => {
@@ -54,7 +51,12 @@ const TaskList = ({ filter }) => {
 		<>
 			{tasks?.length ? (
 				tasks.map((task, index) => (
-					<Task key={task.id || index} formFactor="listItem" task={task} doRenderProjectLink={!(filter && "projectId" in filter)}></Task>
+					<Task
+						key={task.id || index}
+						formFactor="listItem"
+						task={task}
+						doRenderProjectLink={!(filter && "projectId" in filter && filter.projectId !== "")}
+					></Task>
 				))
 			) : (
 				<p>No tasks matching the filter</p>

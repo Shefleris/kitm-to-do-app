@@ -1,19 +1,30 @@
 import { Link } from "react-router-dom";
+import { TASK_PRIORITIES, TASK_STATES } from "../../constants/constants";
+import { useProjectsContext } from "../../contexts/projectsContext";
 
 const Task = ({ task, formFactor, doRenderProjectLink = true, doRenderStatus = true }) => {
+	const taskPriorityDisplayText = TASK_PRIORITIES.find((i) => i.key === task.taskPriority)?.displayText ?? task.taskPriority;
+	const taskStateDisplayText = TASK_STATES.find((i) => i.key === task.taskState)?.displayText ?? task.taskState;
+
+	const { projects, projectsLoading } = useProjectsContext();
+
 	const renderProjectLink = () => {
 		return (
 			doRenderProjectLink &&
 			task.projectId && (
 				<Link to={"/projects/" + task.projectId}>
-					<div>{task.projectName ?? `project ${task.projectId}`}</div>
+					<div>
+						{task.projectName ??
+							(!projectsLoading && projects.find((project) => project.id === task.projectId)?.name) ??
+							`project ${task.projectId}`}
+					</div>
 				</Link>
 			)
 		);
 	};
 
 	const renderStatus = () => {
-		return doRenderStatus && <div>{task.taskState}</div>;
+		return doRenderStatus && <div>{taskStateDisplayText}</div>;
 	};
 
 	switch (formFactor) {
@@ -49,10 +60,14 @@ const Task = ({ task, formFactor, doRenderProjectLink = true, doRenderStatus = t
 					<h3>{task.taskName}</h3>
 					<label>Description</label>
 					<p>{task.taskDesc}</p>
-					<label>Deadline</label>
+					<label>Start date</label>
+					<div>{task.taskStart}</div>
+					<label>End date (deadline)</label>
 					<div>{task.taskDeadline}</div>
+					<label>Priority</label>
+					<div>{taskPriorityDisplayText}</div>
 					<label>Status</label>
-					<div>{task.taskState}</div>
+					{renderStatus()}
 					<label>Project</label>
 					{renderProjectLink()}
 				</div>

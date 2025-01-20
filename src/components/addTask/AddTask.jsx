@@ -5,6 +5,7 @@ import { auth } from "../../services/AuthServices.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useProjectsContext } from "../../contexts/projectsContext";
 import LoadingPlaceholder from "../ui/LoadingPlaceholder.jsx";
+import { TASK_PRIORITIES, TASK_STATES } from "../../constants/constants.js";
 import "./addTask.css";
 
 const AddTask = () => {
@@ -13,11 +14,14 @@ const AddTask = () => {
 	const [user, loading, error] = useAuthState(auth);
 	const { projects, projectsLoading } = useProjectsContext();
 
+	//need to provide initial default values because they only partially update to reflect the displayed form
 	const [formData, setFormData] = useState({
 		taskName: "",
 		taskDesc: "",
+		taskStart: "",
 		taskDeadline: "",
-		taskState: "",
+		taskPriority: "low",
+		taskState: "not started",
 		uid: "",
 		projectId: "",
 	});
@@ -73,16 +77,36 @@ const AddTask = () => {
 				</div>
 				<div className="form__field">
 					<div className="form-floating">
+						<input type="date" name="taskStart" className="form-control" onChange={formValueChange} value={formData.taskStart} />
+						<label htmlFor="taskStart">Start date</label>
+					</div>
+				</div>
+				<div className="form__field">
+					<div className="form-floating">
 						<input type="date" name="taskDeadline" className="form-control" onChange={formValueChange} value={formData.taskDeadline} />
-						<label htmlFor="taskDeadline">Deadline</label>
+						<label htmlFor="taskDeadline">End date (deadline)</label>
+					</div>
+				</div>
+				<div className="form__field">
+					<div className="form-floating">
+						<select name="taskPriority" className="form-control" onChange={formValueChange} value={formData.taskPriority}>
+							{TASK_PRIORITIES.map((i) => (
+								<option key={i.key} value={i.key}>
+									{i.displayText}
+								</option>
+							))}
+						</select>
+						<label htmlFor="projectId">Select task priority</label>
 					</div>
 				</div>
 				<div className="form__field">
 					<div className="form-floating">
 						<select name="taskState" className="form-control" onChange={formValueChange} value={formData.taskState}>
-							<option value={"not started"}>Not started</option>
-							<option value={"in progress"}>In progress</option>
-							<option value={"finished"}>Finished</option>
+							{TASK_STATES.map((i) => (
+								<option key={i.key} value={i.key}>
+									{i.displayText}
+								</option>
+							))}
 						</select>
 						<label htmlFor="projectId">Select task state</label>
 					</div>
@@ -93,7 +117,7 @@ const AddTask = () => {
 							<LoadingPlaceholder formFactor="select" />
 						) : (
 							<select name="projectId" className="form-control" onChange={formValueChange} value={formData.projectId}>
-								<option>Select project to which assign the task</option>
+								<option value="">Select project to which assign the task</option>
 								{projects.map((project) => (
 									<option key={project.id} value={project.id}>
 										{project.name}
