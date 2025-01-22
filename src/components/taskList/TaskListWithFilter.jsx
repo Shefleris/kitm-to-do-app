@@ -54,7 +54,7 @@ const TaskListWithFilter = ({
 		taskName: {
 			displayFieldName: "Task",
 			internalFieldName: "taskName",
-			compareOperation: "==", //TODO: text fragment search
+			compareOperation: "substring",
 		},
 	};
 
