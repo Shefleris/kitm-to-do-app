@@ -1,8 +1,0 @@
-@import "../../css/floating-labels.css";
-@import "../../css/variables.css";
-
-.form__login {
-    align-self: center;
-    width: 100%;
-    max-width: 900px;
-}

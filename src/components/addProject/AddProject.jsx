@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import * as service from "../../services/firestoreCRUD.js";
 import { auth } from "../../services/AuthServices.js";
 import { useAuthState } from "react-firebase-hooks/auth";
-import "./addProject.css"
+import "./addProject.scss"
 
 const AddProject = () => {
 	const navigate = useNavigate()

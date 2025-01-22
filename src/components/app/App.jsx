@@ -26,8 +26,9 @@ function App() {
 					<Route path="/login" element={<Login onSuccessRedirectRoute="/dashboard" />} />
 					<Route path="/register" element={<Register onSuccessRedirectRoute="/dashboard" />} />
 					<Route element={<AppLayout />}>
-						<Route path="/dashboard" element={<Dashboard />} />
-						<Route path="/user" element={<User />} />
+						{/* <Route path="/dashboard" element={<Dashboard />} /> */}
+						<Route path="/dashboard" element={<ProjectList />} />
+						{/* <Route path="/user" element={<User />} /> */}
 						<Route path="/projects" element={<ProjectList />} />
 						<Route path="/projects/:projectId" element={<ProjectPage />} />
 						<Route path="/add-project" element={<AddProject />} />

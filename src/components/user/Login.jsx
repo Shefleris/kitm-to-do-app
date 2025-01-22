@@ -1,4 +1,4 @@
-import "./login.css";
+import "./login.scss";
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 // import { useAuthContext } from "../../contexts/AuthContext";
@@ -64,26 +64,29 @@ const Login = ({ onSuccessRedirectRoute }) => {
 
 	//TODO: purely UI components in separate JSX files
 	return (
-		<div className="form__login">
-			<h2>Sign in</h2>
-			<form onSubmit={submitHandler}>
-				<div className="form__field">
-					<div className="form-floating">
-						<input className="form-control" name="email" value={userData.email} onChange={handleChange} type="email" placeholder="email" />
-						<label htmlFor="email">Email</label>
+		<div className="container__login">
+			<div className="form__login">
+				<img className="login__img" src="src/img/female-sitting-on-the-floor.png" alt="decorative image" />
+				<h2>Sign in</h2>
+				<form onSubmit={submitHandler}>
+					<div className="form__field">
+						<div className="form-floating">
+							<input className="form-control" name="email" value={userData.email} onChange={handleChange} type="email" placeholder="email" />
+							<label htmlFor="email">Email</label>
+						</div>
 					</div>
-				</div>
-				<div className="form__field">
-					<div className="form-floating">
-						<input className="form-control" name="password" onChange={handleChange} type="password" placeholder="password" />
-						<label htmlFor="password">Password</label>
+					<div className="form__field">
+						<div className="form-floating">
+							<input className="form-control" name="password" onChange={handleChange} type="password" placeholder="password" />
+							<label htmlFor="password">Password</label>
+						</div>
 					</div>
-				</div>
-				<button type="sign">Sign in</button>
-				<Link to="/register">Register</Link>
-			</form>
+					<button type="sign">Sign in</button>
+					<Link to="/register">Register</Link>
+				</form>
 
-			{latestError && <ErrorMessage errorObj={latestError} />}
+				{latestError && <ErrorMessage errorObj={latestError} />}
+			</div>
 		</div>
 	);
 	//the value attribute in input displays back what is in the state;

@@ -1,0 +1,44 @@
+@use '../../scss';
+
+.project-page {
+    @include scss.container--center;
+}
+
+.project__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    & > button {
+        @include scss.button--outline;
+        padding: 0 1rem;
+        margin-bottom: 0;
+        margin-left: auto;
+    }
+}
+
+.task-filters {
+    margin-bottom: 0.7rem;
+    display: flex;
+    gap: 0.5rem;
+
+    .button__filter {
+        @include scss.button--outline;
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        border-radius: 1rem;
+    }
+};
+
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+}
+
+.task-card {
+    @include scss.card;
+    p {
+        margin:0;
+    }
+}

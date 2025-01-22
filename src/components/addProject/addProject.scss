@@ -1,0 +1,20 @@
+@use '../../scss';
+
+.form__field {
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem ;
+    border-radius: scss.$border-radius;
+}
+
+.card {
+   @include scss.container--center;
+}
+
+.form__buttons {
+    display: flex;
+    gap:1rem;
+    &> button {
+        @include scss.button--outline;
+    }
+}

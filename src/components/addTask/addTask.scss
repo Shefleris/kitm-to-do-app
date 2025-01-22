@@ -1,22 +1,19 @@
-@import "../../css/floating-labels.css";
-@import "../../css/variables.css";
+@use '../../scss';
 
 .form__field {
     background-color: #fff;
     padding: 1rem;
     margin-bottom: 1rem ;
-    border-radius: var(--border-radius);
+    border-radius: scss.$border-radius;
 }
 
 .card {
-    align-self: center;
-    width: 100%;
-    max-width: 900px;
+    @include scss.container--center;
 }
 
 .buttons button {
-    color:var(--btn-primary);
-    border: 1px solid var(--btn-primary);
+    color:scss.$btn-primary;
+    border: 1px solid scss.$btn-primary;
     background-color: transparent;
     transition-duration: 0.5s;
     border-radius: 1rem;
@@ -25,7 +22,7 @@
 
 button:hover{
     color:#fff;
-    background-color: var(--btn-primary);
+    background-color: scss.$btn-primary;
     text-decoration: none;   
 }
 
@@ -35,8 +32,8 @@ button:hover{
 }
 
 .form__buttons button {
-    color:var(--btn-primary);
-    border: 1px solid var(--btn-primary);
+    color:scss.$btn-primary;
+    border: 1px solid scss.$btn-primary;
     background-color: transparent;
     transition-duration: 0.5s;
     border-radius: 1rem;
@@ -45,6 +42,6 @@ button:hover{
 
 .form__buttons button:hover{
     color:#fff;
-    background-color: var(--btn-primary);
+    background-color: scss.$btn-primary;
     text-decoration: none;   
 }

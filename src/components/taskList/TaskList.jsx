@@ -48,7 +48,7 @@ const TaskList = ({ filter }) => {
 	}
 
 	return (
-		<>
+		<div>
 			{tasks?.length ? (
 				tasks.map((task, index) => (
 					<Task
@@ -61,7 +61,7 @@ const TaskList = ({ filter }) => {
 			) : (
 				<p>No tasks matching the filter</p>
 			)}
-		</>
+		</div>
 	);
 };
 

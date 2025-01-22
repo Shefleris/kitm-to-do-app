@@ -1,0 +1,22 @@
+@use '../../../scss';
+
+header {
+	@include scss.container--center;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 2rem;
+	> button {
+		@include scss.button--base;
+		padding: 1rem 1rem;
+		background-color: scss.$btn_bg-secondary;
+		color: scss.$btn_text;
+		font-weight: 600;
+		&:hover {
+			color: #fff;
+			background-color: scss.$btn_bg-primary;
+			text-decoration: none;
+		}
+	}
+	
+}
+

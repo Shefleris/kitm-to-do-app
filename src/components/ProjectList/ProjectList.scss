@@ -1,0 +1,61 @@
+@use '../../scss';
+
+.project-list-container {
+    @include scss.container--center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.add-project-btn {
+    @include scss.button--outline;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;    
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-card {
+    @include scss.card;
+}
+
+.project-card h2 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: #24252C;
+}
+
+.project-card p {
+    margin: 5px 0;
+    color: var(--secondary-text);
+    line-height: 1.5;
+}
+
+.project-card p strong {
+    color: #333;
+    font-weight: bold;
+}
+
+.project-card p:last-child {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.project__dates {
+    display: flex;
+    gap: 1rem;
+}

@@ -1,0 +1,28 @@
+@use "../abstracts";
+
+@mixin button--base {
+    text-decoration: none;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    padding:1rem 3rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    transition-duration: 0.2s;
+    border:none;
+    &:hover {
+        transition-duration: 0.2s;
+    }
+}
+
+@mixin button--outline {
+    @include button--base;
+    color:abstracts.$btn-primary;
+    border: 1px solid abstracts.$btn-primary;
+    background-color: abstracts.$bg-menu;
+    transition-duration: 0.2s;  
+    &:hover{
+        color:#fff;
+        background-color: abstracts.$btn-primary;
+        text-decoration: none; 
+        transition-duration: 0.2s;    
+    }
+}

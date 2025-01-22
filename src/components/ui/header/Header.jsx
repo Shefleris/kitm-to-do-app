@@ -1,4 +1,4 @@
-import "./header.css";
+import "./header.scss";
 import { useLocation, useNavigate } from "react-router-dom";
 import User from "../../user/User";
 
@@ -22,45 +22,55 @@ const Header = (props) => {
 	switch (locationName[1]) {
 		case "dashboard":
 			return (
-				<nav>
+				<header>
 					<User />
 					<div>
 						<h2>Dashboard</h2>
 					</div>
 					<div></div>
-				</nav>
+				</header>
 			);
 		case "add-project":
 		case "update-project":
 			return (
-				<nav>
+				<header>
 					<button onClick={() => navigate("/dashboard")}>{`<`}</button>
 					<div>
 						<h2>Add project</h2>
 					</div>
 					<div></div>
-				</nav>
+				</header>
 			);
 
 		case "projects":
 			return (
-				<nav>
+				<header>
 					<button onClick={() => navigate("/dashboard")}>{`<`}</button>
 					<div>
-						<h2>Project Tasks</h2>
+						<h2>Projects</h2>
 					</div>
 					<div></div>
-				</nav>
+				</header>
 			);
 		case "add-task":
 			return (
-				<nav>
+				<header>
 					<button onClick={() => navigate("/dashboard")}>{`<`}</button>
 					<div>
 						<h2>Add task</h2>
 					</div>
 					<div></div>
-				</nav>
+				</header>
+			);
+		case "tasks":
+			return (
+				<header>
+					<button onClick={() => navigate("/dashboard")}>{`<`}</button>
+					<div>
+						<h2>Task</h2>
+					</div>
+					<div></div>
+				</header>
 			);
 		default:
 			break;

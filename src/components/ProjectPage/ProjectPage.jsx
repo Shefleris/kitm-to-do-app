@@ -1,4 +1,5 @@
-import "./projectPage.css";
+import "./projectPage.scss";
+import React, { useState } from "react";
 import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
 import TaskListWithFilter from "../taskList/TaskListWithFilter";
 import { useProjectsContext } from "../../contexts/projectsContext";

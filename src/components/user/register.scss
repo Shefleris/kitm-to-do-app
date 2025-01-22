@@ -1,7 +1,4 @@
-@import "../../css/variables.css";
-
 .form-div {
-    background-image: url(src/img/reg-image.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -18,7 +15,7 @@
 }
 .register-heading{
     text-align: center;
-    color: #e6a7ff;
+    color: var(--tertiary-text);
     margin-bottom: 3rem;
 }
 .form-element{
@@ -36,7 +33,7 @@
     margin-bottom: 1rem;
 }
 .register-btn{
-    width: 80%;
+    width: 100%;
     background-color: #cbbaff;
     border-radius: 25px;
     padding: 5px;
