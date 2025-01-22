@@ -1,4 +1,4 @@
-import * as actions from "../actions/actions";
+import * as actions from "../constants/actions";
 
 const reducer = (state, action) => {
 	switch (action.type) {

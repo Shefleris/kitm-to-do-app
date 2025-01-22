@@ -9,9 +9,9 @@ const AppLayout = (props) => {
 	return (
 		<>
 			<ProjectsProvider>
+				<NavBar />
 				<Header pageTitle={props.pageTitle} />
 				<Outlet />
-				<NavBar />
 			</ProjectsProvider>
 		</>
 	);
