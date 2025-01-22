@@ -45,6 +45,10 @@ const AddTask = () => {
 		}
 	};
 
+	useEffect(() => {
+		id && service.getDocumentById(id, "tasks").then((item) => setFormData({ ...item }));
+	}, [id]);
+
 	return (
 		<div className="card">
 			<form className="form" onSubmit={formSubmit}>
@@ -132,13 +136,14 @@ const AddTask = () => {
 					<button type="submit" className="btn btn-primary">
 						{id ? "Save" : "Create"}
 					</button>
-					{id ? (
+					{/* moved this button to task description component; could have it here as well */}
+					{/* {id ? (
 						<button type="button" className="btn btn-primary" onClick={deleteTask}>
 							Delete
 						</button>
 					) : (
 						""
-					)}
+					)} */}
 				</div>
 			</form>
 		</div>

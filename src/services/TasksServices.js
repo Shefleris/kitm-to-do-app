@@ -40,7 +40,7 @@ export const showById = async (id) => {
 		const docRef = db.collection("tasks").doc(id);
 		const docSnap = await getDoc(docRef);
 		console.log("fetch task by id", id, docSnap.data());
-		return docSnap.data();
+		return { id: docSnap.id, ...docSnap.data() };
 	} catch (error) {
 		console.error("Error fetching data: ", error);
 		throw error;
