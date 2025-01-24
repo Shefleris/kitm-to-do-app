@@ -16,11 +16,18 @@ const TaskList = ({ filter }) => {
 	useEffect(() => {
 		const getTasksList = async () => {
 			try {
-				const data = await service.getTasks(user.uid, filter);
+				let data = await service.getTasks(user.uid, filter);
 
 				//TODO: figure out how to properly await projectsLoading
 				if (!projectsLoading && projects?.length) {
-					data.forEach((task) => (task.projectName = projects.find((project) => project.id === task.projectId)?.name ?? undefined));
+					data.forEach((task) => {
+						task.projectName = projects.find((project) => project.id === task.projectId)?.name ?? undefined;
+					});
+				}
+
+				// text fragment search in frontend
+				if ((filter?.taskName ?? "").trim() !== "") {
+					data = data.filter((task) => task.taskName.toLowerCase().includes(filter.taskName.toLowerCase()));
 				}
 
 				setTasks(data);
