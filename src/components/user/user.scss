@@ -22,7 +22,7 @@
         min-width: 6rem;
         margin-top: 0.5rem;
         position: absolute;
-        button {
+        >button {
             width: 100%;
             @include scss.button--outline;
             padding: 1rem;

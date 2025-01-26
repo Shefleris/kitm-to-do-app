@@ -1,46 +1,13 @@
-.form-div {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    border-radius: 800px;
-    height: 100%;
-    min-height: 800px;
-    max-width: 1000px;
-    width: 100%;
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+@use '../../scss';
+.container-div {
+    @include scss.container--center;
 }
-.register-heading{
-    text-align: center;
-    color: var(--tertiary-text);
-    margin-bottom: 3rem;
+
+.register__img {
+    margin: 0 auto;
 }
-.form-element{
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-}
-.form-input{
-    border-radius: 25px;
-    border: none;
-    text-align: center;
-    margin-bottom: 1rem;
-}
+
 .register-btn{
+    @include scss.button--base;
     width: 100%;
-    background-color: #cbbaff;
-    border-radius: 25px;
-    padding: 5px;
-    border: solid 1px var(--btn-primary);
-    color: var(--btn-primary);
-}
-.register-btn:hover{
-    background-color: var(--btn-primary);
-    color: white;
 }

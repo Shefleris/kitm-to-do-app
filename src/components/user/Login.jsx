@@ -81,7 +81,7 @@ const Login = ({ onSuccessRedirectRoute }) => {
 							<label htmlFor="password">Password</label>
 						</div>
 					</div>
-					<button type="sign">Sign in</button>
+					<button className="register-btn" type="sign">Sign in</button>
 					<Link to="/register">Register</Link>
 				</form>
 

@@ -1,5 +1,3 @@
-/* https://github.com/anydigital/float-label-css/blob/master/dist/float-label.css */
-
 .form-control {
     width: 100%;
 }
@@ -65,9 +63,9 @@
     opacity: 0;
 }
 .form-floating input:placeholder-shown:not(:focus) + *, .form-floating select:placeholder-shown:not(:focus) + *, .form-floating textarea:placeholder-shown:not(:focus) + * {
-    font-size: 150%;
+    font-size: 120%;
     opacity: .5;
-    top: .25em;
+    top: .50em;
 }
 .form-floating input:focus, .form-floating select:focus, .form-floating textarea:focus {
     outline: none;

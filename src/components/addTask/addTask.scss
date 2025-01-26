@@ -11,27 +11,13 @@
     @include scss.container--center;
 }
 
-.buttons button {
-    color:scss.$btn-primary;
-    border: 1px solid scss.$btn-primary;
-    background-color: transparent;
-    transition-duration: 0.5s;
-    border-radius: 1rem;
-    padding: 0 1rem  
-}
-
-button:hover{
-    color:#fff;
-    background-color: scss.$btn-primary;
-    text-decoration: none;   
-}
-
 .form__buttons {
     display: flex;
     gap:1rem
 }
 
 .form__buttons button {
+    @include scss.button--base;
     color:scss.$btn-primary;
     border: 1px solid scss.$btn-primary;
     background-color: transparent;

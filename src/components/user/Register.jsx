@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, registerWithEmailAndPassword } from "../../services/AuthServices";
 import ErrorMessage from "./ErrorMessage";
+import { Link } from "react-router-dom";
 
 const Register = ({ onSuccessRedirectRoute }) => {
 	const [userData, setUserData] = useState({
@@ -50,19 +51,35 @@ const Register = ({ onSuccessRedirectRoute }) => {
 
 	//TODO: purely UI components in separate JSX files
 	return (
-		<>
+		<div className="container-div">
 			<div className="form-div">
-				<img src="src/img/female-sitting-on-the-floor.png" alt="decorative image" />
+				<img className="register__img" src="src/img/female-sitting-on-the-floor.png" alt="decorative image" />
 				<h2 className="register-heading">Register</h2>
 				<form className="form-element" onSubmit={submitHandler}>
-					<input className="form-input" name="name" value={userData.name} onChange={handleChange} type="text" placeholder="Username" />
-					<input className="form-input" name="email" value={userData.email} onChange={handleChange} type="email" placeholder="Email" />
-					<input className="form-input" name="password" value={userData.password} onChange={handleChange} type="password" placeholder="Password" />
+					<div className="form__field">
+						<div className="form-floating">
+							<input className="form-control" name="name" value={userData.name} onChange={handleChange} type="text" placeholder="Username" />
+							<label htmlFor="name">Username</label>
+						</div>
+					</div>
+					<div className="form__field">
+						<div className="form-floating">
+							<input className="form-control" name="email" value={userData.email} onChange={handleChange} type="email" placeholder="Email" />
+							<label htmlFor="email">Email</label>
+						</div>
+					</div>
+					<div className="form__field">
+						<div className="form-floating">
+							<input className="form-control" name="password" value={userData.password} onChange={handleChange} type="password" placeholder="Password" />
+							<label htmlFor="password">Password</label>
+						</div>
+					</div>
 					<button className="register-btn" type="submit">Register</button>
+					<Link to="/login">Login</Link>
 				</form>
 				{latestError && <ErrorMessage errorObj={latestError} />}
 			</div>
-		</>
+		</div>
 	);
 	//the value attribute in input displays back what is in the state;
 	//not really useful in this case (form won't be shown if user is authenticated)
