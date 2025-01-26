@@ -133,7 +133,7 @@ const AddTask = () => {
 					</div>
 				</div>
 				<div className="form__buttons">
-					<button type="submit" className="btn btn-primary">
+					<button type="submit">
 						{id ? "Save" : "Create"}
 					</button>
 					{/* moved this button to task description component; could have it here as well */}

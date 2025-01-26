@@ -1,8 +1,6 @@
-
+@use '../../scss';
 .container__login {
-    align-self: center;
-    width: 100%;
-    max-width: 900px;
+    @include scss.container--center;
 }
 
 .login__img {
