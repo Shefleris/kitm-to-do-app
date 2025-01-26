@@ -38,7 +38,7 @@ const AddTask = () => {
 		e.preventDefault();
 		if (id) {
 			service.updateDocument(id, formData, "tasks");
-			navigate(`/projects`);
+			navigate(`/tasks/${id}`);
 		} else {
 			const docRef = await service.addDocument({ ...formData, uid: user.uid }, "tasks");
 			await navigate(`/projects`);
@@ -136,14 +136,6 @@ const AddTask = () => {
 					<button type="submit">
 						{id ? "Save" : "Create"}
 					</button>
-					{/* moved this button to task description component; could have it here as well */}
-					{/* {id ? (
-						<button type="button" className="btn btn-primary" onClick={deleteTask}>
-							Delete
-						</button>
-					) : (
-						""
-					)} */}
 				</div>
 			</form>
 		</div>

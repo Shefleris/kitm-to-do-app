@@ -9,16 +9,6 @@ const Header = (props) => {
 	const navigate = useNavigate();
 	const locationName = location.pathname.split("/");
 
-	// return (
-	// 	<nav>
-	// 		<button onClick={() => navigate("/dashboard")}>{`<`}</button>
-	// 		<div>
-	// 			<h2>{props.pageTitle}</h2>
-	// 		</div>
-	// 		<div></div>
-	// 	</nav>
-	// );
-
 	switch (locationName[1]) {
 		case "dashboard":
 			return (

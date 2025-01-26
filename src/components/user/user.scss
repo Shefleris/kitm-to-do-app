@@ -27,7 +27,8 @@
             @include scss.button--outline;
             padding: 1rem;
             border-radius: 0.8rem;
-            background-color: #ccbbff;
+            background-color: #d5c9fa;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.55);
         }
     }
 }

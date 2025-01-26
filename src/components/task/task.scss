@@ -6,3 +6,20 @@
         margin-bottom: 0.5rem;
     }
 };
+
+.task_button--update,
+.task_button--delete {
+    @include scss.button--base;
+    margin-right: 1rem;
+    background-color: scss.$btn_bg-secondary;
+    &:hover{
+        background-color: scss.$btn_bg-primary;
+        color: scss.$btn_text-white;
+    }
+}
+
+.form input:disabled,
+.form textarea:disabled,
+.form select:disabled{
+    color: scss.$text-primary;
+}
