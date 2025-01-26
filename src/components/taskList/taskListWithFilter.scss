@@ -1,0 +1,20 @@
+@use '../../scss';
+
+.task_filters{
+    margin-bottom: 1.2rem;
+    .task_filter_row {
+        margin-bottom: 0.15rem;
+        label {
+            margin-right: 1rem;
+            input[type=checkbox]{
+                margin-right: 0.3rem;
+                &:checked {
+                    accent-color: scss.$primary;
+                }
+            }
+        }
+    }
+    .task_filter_search label{
+        margin-right: 1rem;
+    }
+}

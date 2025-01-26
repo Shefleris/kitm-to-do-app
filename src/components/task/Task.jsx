@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { TASK_PRIORITIES, TASK_STATES } from "../../constants/constants";
 import { useProjectsContext } from "../../contexts/projectsContext";
+import { deleteDocument } from "../../services/firestoreCRUD";
 import "./task.scss";
 
 const Task = ({ task, formFactor, doRenderProjectLink = true, doRenderStatus = true }) => {
@@ -157,8 +158,8 @@ const Task = ({ task, formFactor, doRenderProjectLink = true, doRenderStatus = t
 							type="button"
 							className="task_button--delete"
 							onClick={() => {
-								deleteDocument(task.id, "tasks")
-								navigate("/projects/" + task.projectId)
+								deleteDocument(task.id, "tasks");
+								navigate("/projects/" + task.projectId);
 							}}
 						>
 							Delete

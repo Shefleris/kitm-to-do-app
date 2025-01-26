@@ -2,6 +2,7 @@ import { useState } from "react";
 import { TASK_PRIORITIES, TASK_STATES } from "../../constants/constants";
 import TaskList from "./TaskList";
 import { useProjectsContext } from "../../contexts/projectsContext";
+import './taskListWithFilter.scss'
 
 /**
  * the TaskList component produces a list of tasks filtered by conditions in props;
@@ -77,8 +78,8 @@ const TaskListWithFilter = ({
 	const renderMultipleChoiceGroup = ({ field }) => {
 		//TODO: instead of checkboxes, make "filter chips": https://m3.material.io/components/chips/guidelines#a31e974b-a1af-4d29-a107-11725a093e6d
 		return (
-			<div key={field}>
-				<label>{filterDefinitions[field].displayFieldName}</label>
+			<div key={field} className="task_filter_row">
+				<label>{filterDefinitions[field].displayFieldName}:</label>
 				{filterDefinitions[field].availableOptions.map((i) => (
 					<label key={i.key}>
 						<input
@@ -114,7 +115,7 @@ const TaskListWithFilter = ({
 
 	const renderTextInput = ({ field }) => {
 		return (
-			<div key={field}>
+			<div key={field} className="task_filter_search">
 				<label>{filterDefinitions[field].displayFieldName}</label>
 				<input
 					name={field}
@@ -146,7 +147,7 @@ const TaskListWithFilter = ({
 
 	return (
 		<>
-			<div>
+			<div className="task_filters">
 				{Array.from(filterFieldsSet).map((field) => {
 					const def = filterDefinitions[field];
 					if (def.availableOptions) {
