@@ -15,13 +15,12 @@ const Header = (props) => {
 				<header>
 					<User />
 					<div>
-						<h2>Dashboard</h2>
+						<h2>Projects</h2>
 					</div>
 					<div></div>
 				</header>
 			);
 		case "add-project":
-		case "update-project":
 			return (
 				<header>
 					<button onClick={() => navigate("/dashboard")}>{`<`}</button>
@@ -31,11 +30,21 @@ const Header = (props) => {
 					<div></div>
 				</header>
 			);
+		case "update-project":
+			return (
+				<header>
+					<button onClick={() => navigate("/dashboard")}>{`<`}</button>
+					<div>
+						<h2>Update project</h2>
+					</div>
+					<div></div>
+				</header>
+			);
 
 		case "projects":
 			return (
 				<header>
-					<button onClick={() => navigate("/dashboard")}>{`<`}</button>
+					<User />
 					<div>
 						<h2>Projects</h2>
 					</div>
@@ -57,7 +66,7 @@ const Header = (props) => {
 				<header>
 					<button onClick={() => navigate("/dashboard")}>{`<`}</button>
 					<div>
-						<h2>Task</h2>
+						<h2>Tasks</h2>
 					</div>
 					<div></div>
 				</header>
