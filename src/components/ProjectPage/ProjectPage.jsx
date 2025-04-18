@@ -7,7 +7,6 @@ import LoadingPlaceholder from "../ui/LoadingPlaceholder";
 
 const ProjectPage = () => {
 	const location = useLocation();
-	// const projectName = location.state?.projectName || "Unknown Project";
 	const projectId = location.pathname.split("/")[2];
 	const navigate = useNavigate();
 	const { projects, projectsLoading } = useProjectsContext();

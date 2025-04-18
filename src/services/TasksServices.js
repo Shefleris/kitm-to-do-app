@@ -3,7 +3,6 @@ import { db } from "../firebase";
 
 export const getTasks = async (uid, queryParams) => {
 	const queryConditions = [where("uid", "==", uid)];
-	//TODO: process and append queryParams to firebase format queryConditions (not all implemented yet!!!)
 	if (queryParams?.projectId) {
 		queryConditions.push(where("projectId", "==", queryParams.projectId));
 	}
@@ -13,22 +12,15 @@ export const getTasks = async (uid, queryParams) => {
 	if (queryParams?.taskPriority?.length) {
 		queryConditions.push(where("taskPriority", "in", queryParams.taskPriority));
 	}
-	////TODO: text fragment search (not so straightforward? https://firebase.google.com/docs/firestore/solutions/search)
-	////update: taskName filtering will be done in front-end
-	// if (queryParams?.taskName) {
-	// 	queryConditions.push(where("taskName", "==", queryParams.taskName));
-	// }
 
 	try {
 		const queryRef = query(collection(db, "tasks"), ...queryConditions);
-		// console.log(queryRef);
 
 		const querySnapshot = await getDocs(queryRef);
 		const parsedDocs = querySnapshot.docs.map((doc) => ({
 			id: doc.id,
 			...doc.data(),
 		}));
-		// console.log("parsedDocs", parsedDocs);
 		return parsedDocs;
 	} catch (error) {
 		console.error("Error fetching data: ", error);

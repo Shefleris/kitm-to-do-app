@@ -14,7 +14,6 @@ const AddTask = () => {
 	const [user, loading, error] = useAuthState(auth);
 	const { projects, projectsLoading } = useProjectsContext();
 
-	//need to provide initial default values because they only partially update to reflect the displayed form
 	const [formData, setFormData] = useState({
 		taskName: "",
 		taskDesc: "",

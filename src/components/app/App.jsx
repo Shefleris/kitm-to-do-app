@@ -12,12 +12,6 @@ import User from "../user/User";
 import AppLayout from "../ui/AppLayout";
 
 function App() {
-	//routing: path="/" should lead to landing only when not signed in, otherwise to dashboard
-	//achieve this with useNavigate in landing component?
-	//landing page uses separate layout without Header and NavBar
-	//component layout architecture: on certain occasions render the whole page in specific ways (like landing),
-	// for most other cases have a container layout with header and navbar that renders route-specific content inside
-	// header content should be tied to the routed page content
 	return (
 		<>
 			<Router>
@@ -26,9 +20,7 @@ function App() {
 					<Route path="/login" element={<Login onSuccessRedirectRoute="/dashboard" />} />
 					<Route path="/register" element={<Register onSuccessRedirectRoute="/dashboard" />} />
 					<Route element={<AppLayout />}>
-						{/* <Route path="/dashboard" element={<Dashboard />} /> */}
 						<Route path="/dashboard" element={<ProjectList />} />
-						{/* <Route path="/user" element={<User />} /> */}
 						<Route path="/projects" element={<ProjectList />} />
 						<Route path="/projects/:projectId" element={<ProjectPage />} />
 						<Route path="/add-project" element={<AddProject />} />

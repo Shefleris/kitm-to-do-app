@@ -17,15 +17,11 @@ const TaskList = ({ filter }) => {
 		const getTasksList = async () => {
 			try {
 				let data = await service.getTasks(user.uid, filter);
-
-				//TODO: figure out how to properly await projectsLoading
 				if (!projectsLoading && projects?.length) {
 					data.forEach((task) => {
 						task.projectName = projects.find((project) => project.id === task.projectId)?.name ?? undefined;
 					});
 				}
-
-				// text fragment search in frontend
 				if ((filter?.taskName ?? "").trim() !== "") {
 					data = data.filter((task) => task.taskName.toLowerCase().includes(filter.taskName.toLowerCase()));
 				}
@@ -38,8 +34,6 @@ const TaskList = ({ filter }) => {
 				setLoading(false);
 			}
 		};
-
-		//GV: not the best idea to wait for projectsLoading, better would be listing the tasks and dynamically updating their projectName when projects data is ready
 		if (authLoading || projectsLoading) return;
 		if (user) {
 			getTasksList();

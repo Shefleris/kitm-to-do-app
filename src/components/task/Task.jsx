@@ -59,43 +59,8 @@ const Task = ({ task, formFactor, doRenderProjectLink = true, doRenderStatus = t
 				</div>
 			);
 		case "full":
-		default: //should look similar to editable form in AddTask
+		default:
 			return (
-				// <div>
-				// 	<label>Task</label>
-				// 	<h3>{task.taskName}</h3>
-				// 	<label>Description</label>
-				// 	<p>{task.taskDesc}</p>
-				// 	<label>Start date</label>
-				// 	<div>{task.taskStart}</div>
-				// 	<label>End date (deadline)</label>
-				// 	<div>{task.taskDeadline}</div>
-				// 	<label>Priority</label>
-				// 	<div>{taskPriorityDisplayText}</div>
-				// 	<label>Status</label>
-				// 	{renderStatus()}
-				// 	<label>Project</label>
-				// 	{renderProjectLink()}
-				// 	<button
-				// 		type="button"
-				// 		className="btn btn-primary"
-				// 		onClick={() => {
-				// 			navigate("/update-task/" + task.id);
-				// 		}}
-				// 	>
-				// 		Edit
-				// 	</button>
-				// 	<button
-				// 		type="button"
-				// 		className="btn btn-primary"
-				// 		onClick={() => {
-				// 			console.log("NOT IMPLEMENTED YET");
-				// 		}}
-				// 	>
-				// 		Delete
-				// 	</button>
-				// </div>
-
 				<>
 					<div className="card">
 						<div className="form">

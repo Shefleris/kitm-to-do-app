@@ -76,7 +76,6 @@ const TaskListWithFilter = ({
 	};
 
 	const renderMultipleChoiceGroup = ({ field }) => {
-		//TODO: instead of checkboxes, make "filter chips": https://m3.material.io/components/chips/guidelines#a31e974b-a1af-4d29-a107-11725a093e6d
 		return (
 			<div key={field} className="task_filter_row">
 				<label>{filterDefinitions[field].displayFieldName}:</label>
@@ -131,19 +130,14 @@ const TaskListWithFilter = ({
 	//#endregion
 
 	const setFieldFilter = (field, value) => {
-		//GV: I know React has nicer solutions for partial state handling
 		const modifiedFilter = Object.assign({}, currentFilter);
-		//this condition should check if there is a meaningful value for applying filter on that field
 		if (!value || (Array.isArray(value) && value.length === 0)) {
 			delete modifiedFilter[field];
 		} else {
 			modifiedFilter[field] = value;
 		}
 		setCurrentFilter(modifiedFilter);
-		// setCurrentFilter({ ...currentFilter, [field]: value });
 	};
-
-	// console.log(currentFilter);
 
 	return (
 		<>

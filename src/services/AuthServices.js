@@ -5,7 +5,6 @@ import "firebase/compat/auth";
 const auth = app.auth();
 const db = app.firestore();
 
-
 const getUserData = (uid, setUser) => {
 	if (!uid) return;
 	try {
@@ -26,7 +25,12 @@ const signInWithEmailAndPassword = async (email, password, onErrorFn) => {
 	}
 };
 
-const registerWithEmailAndPassword = async (name, email, password, onErrorFn) => {
+const registerWithEmailAndPassword = async (
+	name,
+	email,
+	password,
+	onErrorFn
+) => {
 	try {
 		const res = await auth.createUserWithEmailAndPassword(email, password);
 		const user = res.user;
@@ -47,4 +51,10 @@ const logout = () => {
 
 export default firebase;
 
-export { auth, getUserData, signInWithEmailAndPassword, registerWithEmailAndPassword, logout };
+export {
+	auth,
+	getUserData,
+	signInWithEmailAndPassword,
+	registerWithEmailAndPassword,
+	logout,
+};

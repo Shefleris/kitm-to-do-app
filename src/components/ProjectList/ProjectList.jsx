@@ -5,7 +5,7 @@ import LoadingPlaceholder from "../ui/LoadingPlaceholder";
 
 const ProjectList = () => {
 	const error = null;
-	const { projects, projectsLoading } = useProjectsContext(); //TODO: error handling
+	const { projects, projectsLoading } = useProjectsContext();
 	const navigate = useNavigate();
 	const handleAddNewProject = () => {
 		navigate("/add-project");

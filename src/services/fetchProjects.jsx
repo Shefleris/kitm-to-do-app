@@ -32,10 +32,6 @@ export const fetchProjects = async (user_id) => {
 export const fetchProjectsWithUpdateCallback = async (user_id, onUpdateFn) => {
 	try {
 		const queryRef = query(collection(db, "projects"), where("uid", "==", user_id));
-
-		// const querySnapshot = await getDocs(queryRef);
-		// console.log(querySnapshot.docs.map((doc) => doc.data()));
-
 		onSnapshot(queryRef, (querySnapshot) => {
 			const projects = querySnapshot.docs.map((doc) => {
 				const data = doc.data();
